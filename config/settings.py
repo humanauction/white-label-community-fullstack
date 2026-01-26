@@ -27,7 +27,10 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.herokuapp.com',
+    # 'https://*.herokuapp.com',
+    # render shared addresses
+    '74.220.49.0/24',
+    '74.220.57.0/24',
     'http://127.0.0.1:8000',
     'http://localhost:8000'
 ]
