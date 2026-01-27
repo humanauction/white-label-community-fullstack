@@ -38,7 +38,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
     "https://white-label-fullstack-deanery.onrender.com",
-    "https://white-label-fullstack-deanery.onrender.com",
+    "https://*.onrender.com",
 ]
 
 # Database - Single, clear definition
