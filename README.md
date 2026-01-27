@@ -1,4 +1,4 @@
-# Deanery
+# white‑label full‑stack
 
 A white‑label full‑stack platform for cooperative, community, and faith‑based organisations—tailored here for faith centres.
 
@@ -9,6 +9,8 @@ This repository uses **GitHub Project Boards** with the **MoSCoW prioritization 
 ## Overview
 
 This project provides a modular web platform to manage community content, events, churches/locations, maps, and communications. It is designed to be re‑skinned and reused across organisations while keeping core features consistent.
+
+Use case: A faith‑based organisation wants to create a website to list local churches, manage events, and communicate with members via newsletters.
 
 ## Project Map
 
