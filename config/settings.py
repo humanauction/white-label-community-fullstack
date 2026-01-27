@@ -25,7 +25,9 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     '74.220.49.0/24',
-    '74.220.57.0/24'
+    '74.220.57.0/24',
+    "https://white-label-fullstack-deanery.onrender.com",
+    "white-label-fullstack-deanery.onrender.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -34,7 +36,9 @@ CSRF_TRUSTED_ORIGINS = [
     '74.220.49.0/24',
     '74.220.57.0/24',
     'http://127.0.0.1:8000',
-    'http://localhost:8000'
+    'http://localhost:8000',
+    "https://white-label-fullstack-deanery.onrender.com",
+    "white-label-fullstack-deanery.onrender.com",
 ]
 
 # Database - Single, clear definition
