@@ -14,20 +14,30 @@ Use case: A faith‑based organisation wants to create a website to list local c
 
 ## Project Map
 
-- **config/** — Django project configuration and settings  
-- **home/** — Core pages, newsletter signup, events, churches, contact  
-- **map/** — Map views and templates  
-- **theme/** — Tailwind/DaisyUI theme, templates, static assets  
-- **docs/** — CSV data sources for churches  
-- **media/** — User‑uploaded files (images)  
-- **staticfiles/** — Collected static output (dev/prod)
+```text
+white-label-community-fullstack/
+├─ config/                  # Django project config (settings, urls, wsgi/asgi)
+├─ home/                    # Core app: pages, events, churches, newsletter
+├─ map/                     # Map view + data processing
+├─ theme/                   # Tailwind/DaisyUI theme + base template
+│  ├─ templates/            # base.html
+│  ├─ static/               # compiled static assets
+│  └─ static_src/           # Tailwind/PostCSS source
+├─ docs/                    # CSV data sources (church locations)
+├─ media/                   # user uploads (events images)
+├─ staticfiles/             # collected static output (dev/prod)
+├─ manage.py                # Django entrypoint
+├─ requirements.txt         # Python deps
+├─ tailwind.config.js       # Tailwind config
+└─ package.json             # Frontend tooling
+```
 
 ## Tech Stack
 
 - **Backend:** Django 5  
 - **Frontend:** Tailwind CSS + DaisyUI  
 - **Database:** SQLite (local) / PostgreSQL (production via `DATABASE_URL`)  
-- **Maps:** Google Maps API (optional)  
+- **Maps:** Google Maps API  
 - **Deployment:** Gunicorn + WhiteNoise  
 
 ## UI/UX
@@ -42,6 +52,7 @@ Use case: A faith‑based organisation wants to create a website to list local c
 |                                Fern Green                                 |                              Cal Poly Green                               |                                   Black                                   |                                   Night                                   |                                 Penn Red                                  |
 | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
 | ![#608351](https://via.placeholder.com/30/608351/FFFFFF?text=+) `#608351` | ![#2D3D26](https://via.placeholder.com/30/2D3D26/FFFFFF?text=+) `#2D3D26` | ![#000000](https://via.placeholder.com/30/000000/FFFFFF?text=+) `#000000` | ![#10150D](https://via.placeholder.com/30/10150D/FFFFFF?text=+) `#10150D` | ![#941100](https://via.placeholder.com/30/941100/FFFFFF?text=+) `#941100` |
+
 
 ## Features
 

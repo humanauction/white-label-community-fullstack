@@ -21,11 +21,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 DEBUG = True
 ALLOWED_HOSTS = [
-    "deanery-11c659a713eb.herokuapp.com",
     "127.0.0.1",
     "localhost",
-    '74.220.49.0/24',
-    '74.220.57.0/24',
+    # '74.220.49.0/24',
+    # '74.220.57.0/24',
     "https://white-label-fullstack-deanery.onrender.com",
     "white-label-fullstack-deanery.onrender.com",
 ]
@@ -33,8 +32,8 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     # 'https://*.herokuapp.com',
     # render shared addresses
-    'https://74.220.49.0/24',
-    'https://74.220.57.0/24',
+    # 'https://74.220.49.0/24',
+    # 'https://74.220.57.0/24',
     'http://127.0.0.1:8000',
     'http://localhost:8000',
     "https://white-label-fullstack-deanery.onrender.com",
