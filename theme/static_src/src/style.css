@@ -14,8 +14,8 @@
 /* card classes  */
 .flip-card {
     perspective: 1000px;
-    border: 1px solid var(--accent-color-2);
-    border-radius: 0.5rem;
+    /* border: 1px solid var(--accent-color-2);
+    border-radius: 0.5rem; */
 }
 .flip-card-inner {
     position: relative;
