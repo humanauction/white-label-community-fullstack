@@ -34,7 +34,9 @@ class Command(BaseCommand):
                     defaults={
                         "address": (row.get("Address") or "").strip(),
                         "contact": (row.get("Contact") or "").strip(),
-                        "contact_email": (row.get("Contact Email") or "").strip(),
+                        "contact_email": (
+                            row.get("Contact Email") or ""
+                        ).strip(),
                         "website": (row.get("Website") or "").strip(),
                         "latitude": latitude,
                         "longitude": longitude,

@@ -11,16 +11,22 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         User = get_user_model()
 
-        # Get a staff user or superuser to assign as event creator; create one if missing
+        # Get a staff user or superuser to assign as event creator;
+        # create one if missing
         user = (
             User.objects.filter(is_superuser=True).first()
             or User.objects.filter(is_staff=True).first()
         )
         if not user:
-            user = User.objects.create_user(username="demo_staff", password="change-me")
+            user = User.objects.create_user(
+                username="demo_staff",
+                password="change-me"
+            )
             user.is_staff = True
             user.save(update_fields=["is_staff"])
-            self.stdout.write(self.style.WARNING("Created demo staff user: demo_staff"))
+            self.stdout.write(
+                self.style.WARNING("Created demo staff user: demo_staff")
+            )
 
         churches = list(Church.objects.all()[:5])
         now = timezone.now()
@@ -28,24 +34,33 @@ class Command(BaseCommand):
         # Ensure Christmas is always in the future
         year = now.year
         christmas_start = datetime.datetime(year, 12, 24, 23, 30)
-        christmas_start = timezone.make_aware(christmas_start, timezone.get_current_timezone())
+        christmas_start = timezone.make_aware(
+            christmas_start,
+            timezone.get_current_timezone()
+        )
         if christmas_start <= now:
             christmas_start = timezone.make_aware(
                 datetime.datetime(year + 1, 12, 24, 23, 30),
                 timezone.get_current_timezone(),
             )
-        christmas_end = christmas_start + datetime.timedelta(hours=1, minutes=30)
+        christmas_end = (
+            christmas_start + datetime.timedelta(hours=1, minutes=30)
+        )
 
         events = [
             {
                 "title": "Christmas Midnight Mass",
                 "description": (
-                    "Join us for our annual Christmas Midnight Mass. The service will "
-                    "feature traditional carols, scripture readings, and Holy Communion. "
+                    "Join us for our annual Christmas Midnight Mass. /"
+                    "The service will feature traditional carols, /"
+                    "scripture readings, and Holy Communion. "
                     "All are welcome to attend this special celebration."
                 ),
                 "church": churches[0] if churches else None,
-                "location": "St. Martin and St. Meriadoc Church" if not churches else "",
+                "location": (
+                    "St. Martin and St. Meriadoc Church"
+                    if not churches else ""
+                ),
                 "start_time": christmas_start,
                 "end_time": christmas_end,
                 "is_featured": True,
@@ -58,7 +73,9 @@ class Command(BaseCommand):
                     "Families are encouraged to attend together."
                 ),
                 "church": churches[1] if len(churches) > 1 else None,
-                "location": "Holy Trinity Church" if len(churches) <= 1 else "",
+                "location": (
+                    "Holy Trinity Church" if len(churches) <= 1 else ""
+                ),
                 "start_time": datetime.datetime(
                     now.year + 1, 4, 9, 10, 0,
                     tzinfo=timezone.get_current_timezone()
@@ -72,12 +89,21 @@ class Command(BaseCommand):
             {
                 "title": "Halloween Graveyard Scavenger Hunt",
                 "description": (
-                    "A family-friendly event exploring the historic graveyard. Learn about local "
-                    "history while solving puzzles and finding clues. Prizes for all participants. "
-                    "Suitable for ages 7+. Please bring a torch/flashlight."
+                    (
+                        "A family-friendly event exploring the /"
+                        "historic graveyard. "
+                        "Learn about local history while solving puzzles and /"
+                        "finding clues. "
+                        "Prizes for all participants. "
+                        "Suitable for ages 7+. /"
+                        "Please bring a torch/flashlight."
+                    )
                 ),
                 "church": churches[2] if len(churches) > 2 else None,
-                "location": "St. Illogan Church Graveyard" if len(churches) <= 2 else "",
+                "location": (
+                    "St. Illogan Church Graveyard"
+                    if len(churches) <= 2 else ""
+                ),
                 "start_time": datetime.datetime(
                     now.year + 1, 10, 31, 18, 0,
                     tzinfo=timezone.get_current_timezone()
@@ -92,7 +118,7 @@ class Command(BaseCommand):
                 "title": "Community Coffee Morning",
                 "description": (
                     "Join us for coffee, cake and conversation."
-                    "Everyone welcome!'
+                    "Everyone welcome!"
 
                 ),
                 "church": churches[3] if len(churches) > 3 else None,
@@ -131,4 +157,5 @@ class Command(BaseCommand):
             )
             count += 1
 
-        self.stdout.write(self.style.SUCCESS(f"{count} sample events created successfully."))
+        self.stdout.write(self.style.SUCCESS(
+                    f"{count} sample events created."))
