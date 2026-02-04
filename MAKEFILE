@@ -28,10 +28,10 @@ makemigrations:
 collectstatic:
 	python manage.py collectstatic --noinput
 
-tw-dev:
+dev:
 	cd theme/static_src && npm run dev
 
-tw-build:
+build:
 	cd theme/static_src && npm run build
 
 npm-install:
